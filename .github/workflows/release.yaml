@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.vscode/**'
+      - '.idea/**'
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  MSME-contracts-validate:
+    name: Run MSME-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/MSME-contracts-ci.yaml
+
+  MSME-contracts-release:
+    name: Run MSME-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/MSME-contracts-cd.yaml
+    needs: MSME-contracts-validate
+
+  MSME-frontend-validate:
+    name: Run MSME-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/MSME-frontend-ci.yaml
+
+  MSME-frontend-release:
+    name: Run MSME-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/MSME-frontend-cd.yaml
+    needs: MSME-frontend-validate

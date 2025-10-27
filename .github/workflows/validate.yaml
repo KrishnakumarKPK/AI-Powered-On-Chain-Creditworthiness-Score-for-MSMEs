@@ -1,0 +1,14 @@
+name: Pull Request validation
+
+on: [pull_request]
+
+
+jobs:
+  MSME-contracts-ci:
+    name: Run MSME-contracts validation
+    uses: ./.github/workflows/MSME-contracts-ci.yaml
+
+  MSME-frontend-ci:
+    name: Run MSME-frontend validation
+    uses: ./.github/workflows/MSME-frontend-ci.yaml
+
