@@ -1,55 +1,164 @@
-# MSME
+# 🌐 AI-Powered On-Chain Creditworthiness Score for MSMEs
 
-This starter full stack project has been generated using AlgoKit. See below for default getting started instructions.
+## 📘 Project Overview
 
-## Setup
+This project is a Decentralized Credit Scoring (DCS) platform tailored for Micro, Small, and Medium Enterprises (MSMEs) in India who do not have access to traditional credit.
 
-### Initial setup
-1. Clone this repository to your local machine.
-2. Ensure [Docker](https://www.docker.com/) is installed and operational. Then, install `AlgoKit` following this [guide](https://github.com/algorandfoundation/algokit-cli#install).
-3. Run `algokit project bootstrap all` in the project directory. This command sets up your environment by installing necessary dependencies, setting up a Python virtual environment, and preparing your `.env` file.
-4. In the case of a smart contract project, execute `algokit generate env-file -a target_network localnet` from the `MSME-contracts` directory to create a `.env.localnet` file with default configuration for `localnet`.
-5. To build your project, execute `algokit project run build`. This compiles your project and prepares it for running.
-6. For project-specific instructions, refer to the READMEs of the child projects:
-   - Smart Contracts: [MSME-contracts](projects/MSME-contracts/README.md)
-   - Frontend Application: [MSME-frontend](projects/MSME-frontend/README.md)
+### ❓ Why This Project?
+Many MSMEs lack standardized credit histories and struggle to prove creditworthiness. This platform helps them access loans by generating a verifiable, blockchain-based credit score.
 
-> This project is structured as a monorepo, refer to the [documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/project/run.md) to learn more about custom command orchestration via `algokit project run`.
+### ⚙️ How It Works
+- 🧾 MSMEs upload business documents (such as hashed, anonymized invoices or payment records) to a secure off-chain system.
+- 🤖 An external AI analyzes this data and calculates a risk score, without using KYC.
+- 🪪 The credit score is issued as a non-transferable NFT/ASA (“Digital Credit Passport”) on the Algorand blockchain.
+- 🏦 Lenders can instantly verify and query these scores, making lending safer and fairer for the informal sector.
 
-### Subsequently
+### ⭐ Key Benefits
+MSMEs can now build a trusted digital trail and unlock financial opportunities, while lenders access reliable, audit-ready data—promoting financial inclusion and transparency.
+---
 
-1. If you update to the latest source code and there are new dependencies, you will need to run `algokit project bootstrap all` again.
-2. Follow step 3 above.
+## Project Demonstration Video
 
-### Continuous Integration / Continuous Deployment (CI/CD)
+Watch this detailed video walkthrough explaining the project, its features, and how it works:
 
-This project uses [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) to define CI/CD workflows, which are located in the [`.github/workflows`](./.github/workflows) folder. You can configure these actions to suit your project's needs, including CI checks, audits, linting, type checking, testing, and deployments to TestNet.
+[Watch our use-case video on Google Drive](https://drive.google.com/file/d/10aMNm4NQSFBDYL1MvbzBf7iPr4aiDmID/view?usp=drive_link)
 
-For pushes to `main` branch, after the above checks pass, the following deployment actions are performed:
-  - The smart contract(s) are deployed to TestNet using [AlgoNode](https://algonode.io).
-  - The frontend application is deployed to a provider of your choice (Netlify, Vercel, etc.). See [frontend README](frontend/README.md) for more information.
 
-> Please note deployment of smart contracts is done via `algokit deploy` command which can be invoked both via CI as seen on this project, or locally. For more information on how to use `algokit deploy` please see [AlgoKit documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/deploy.md).
+> Click the above link to watch the full project demonstration video hosted on Google Drive.
 
-## Tools
 
-This project makes use of Python and React to build Algorand smart contracts and to provide a base project configuration to develop frontends for your Algorand dApps and interactions with smart contracts. The following tools are in use:
 
-- Algorand, AlgoKit, and AlgoKit Utils
-- Python dependencies including Poetry, Black, Ruff or Flake8, mypy, pytest, and pip-audit
-- React and related dependencies including AlgoKit Utils, Tailwind CSS, daisyUI, use-wallet, npm, jest, playwright, Prettier, ESLint, and Github Actions workflows for build validation
+---
 
-### VS Code
+## 🛠️ Setup & Installation Instructions
 
-It has also been configured to have a productive dev experience out of the box in [VS Code](https://code.visualstudio.com/), see the [backend .vscode](./backend/.vscode) and [frontend .vscode](./frontend/.vscode) folders for more details.
+### 📌 Prerequisites
 
-## Integrating with smart contracts and application clients
+- 🐳 Docker must be installed and operational: [https://www.docker.com/](https://www.docker.com/)
+- 🔧 AlgoKit CLI must be installed: [https://github.com/algorandfoundation/algokit-cli#install](https://github.com/algorandfoundation/algokit-cli#install)
 
-Refer to the [MSME-contracts](projects/MSME-contracts/README.md) folder for overview of working with smart contracts, [projects/MSME-frontend](projects/MSME-frontend/README.md) for overview of the React project and the [projects/MSME-frontend/contracts](projects/MSME-frontend/src/contracts/README.md) folder for README on adding new smart contracts from backend as application clients on your frontend. The templates provided in these folders will help you get started.
-When you compile and generate smart contract artifacts, your frontend component will automatically generate typescript application clients from smart contract artifacts and move them to `frontend/src/contracts` folder, see [`generate:app-clients` in package.json](projects/MSME-frontend/package.json). Afterwards, you are free to import and use them in your frontend application.
+### 🚀 Initial Setup
 
-The frontend starter also provides an example of interactions with your MsmeClient in [`AppCalls.tsx`](projects/MSME-frontend/src/components/AppCalls.tsx) component by default.
+1. Clone this repository to your local machine:
+git clone https://github.com/KrishnakumarKPK/AI-Powered-On-Chain-Creditworthiness-Score-for-MSMEs.git
 
-## Next Steps
+cd AI-Powered-On-Chain-Creditworthiness-Score-for-MSMEs
 
-You can take this project and customize it to build your own decentralized applications on Algorand. Make sure to understand how to use AlgoKit and how to write smart contracts for Algorand before you start.
+2. Install AlgoKit CLI if not already installed (see above).
+
+3. Set up the project environment, dependencies, and prepare `.env` files:
+algokit project bootstrap all
+
+4. For smart contract projects, generate the `.env.localnet` configuration file for the local network:
+cd projects/MSME-contracts
+algokit generate env-file -a target_network localnet
+cd ../../
+
+5. Build the entire project:
+
+algokit project run build
+
+6. For specific instructions, check the child project READMEs:
+- Smart Contracts: `projects/MSME-contracts/README.md`
+- Frontend Application: `projects/MSME-frontend/README.md`
+
+### 🔄 Subsequent Updates
+
+- If new dependencies are added in future source code updates, rerun:
+algokit project bootstrap all
+
+
+- Follow step 3 above again for environment setup.
+
+### 🔁 Continuous Integration / Continuous Deployment (CI/CD)
+
+- This project uses GitHub Actions for CI/CD, configured in the `.github/workflows` folder.
+- Pushes to the `main` branch trigger:
+- 🚀 Smart contract deployment to TestNet via AlgoNode.
+- 🌐 Frontend deployment to your choice of host (Netlify, Vercel, etc.).
+- Smart contract deployment uses the `algokit deploy` command, which can also be run locally.
+
+For more information, refer to the [AlgoKit documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/deploy.md).
+
+---
+
+
+## 🧾 Deployed Smart Contracts & Assets
+
+At this stage, the smart contracts for the project have been fully developed, built, and tested using a local Algorand sandbox (AlgoKit LocalNet), but have not yet been deployed to a public testnet or mainnet. The following screenshots provide strong evidence of successful local development, setup, and contract compilation.
+
+> When you deploy your contracts or assets to the Algorand TestNet or MainNet, their live links will be added in this section.
+
+### 🧪 Local Deployment Walkthrough
+
+The screenshots below represent a typical workflow for building and testing the smart contracts in a local development environment:
+
+1. **LocalNet Startup:** All necessary services and Docker containers for Algorand sandbox are started and verified as healthy.
+2. **Project Build:** The project and smart contracts are built and compiled with AlgoKit to ensure there are no errors before moving to production or testnet deployment.
+3. **Sandbox and Build Validation:** The terminal logs and process health checks provide visible proof that the local setup, contract artifact creation, and complete project workflow are fully operational.
+
+#### 🖼️ Screenshots of Successful Local Setup
+
+<img src="https://drive.google.com/uc?export=view&id=1-i751-HFhU9nPErMY0w9VJWb70v5OyG3" width="600">
+<img src="https://drive.google.com/uc?export=view&id=1C-Qh1CWk6yc9lp28XJMQUWwURB5vFdGa" width="600">
+<img src="https://drive.google.com/uc?export=view&id=1iGHUhcdGrslVU-Ok858TmS8BKbl_Gexr" width="600">
+<img src="https://drive.google.com/uc?export=view&id=1vmxT0bY4gHl7hvN3Z9eRy8L2wLKrkjWy" width="600">
+
+> These images demonstrate the readiness of the project for public deployment by showing the essential localnet and build processes running smoothly.
+
+
+---
+
+## 🏗️ Architecture & Components
+
+This section offers a brief overview of the overall solution design and the major components involved in building the AI-powered on-chain creditworthiness scoring system for MSMEs.
+
+### 🔍 High-Level Architecture
+
+The solution is structured as a modern full-stack decentralized application (dApp), supporting both backend smart contract logic and a user-facing frontend interface. Key architectural highlights are:
+
+- **📦 Monorepo Structure:**  
+  The project adopts a monorepo layout, encapsulating smart contract code, frontend code, and configuration within a unified repository for ease of development and deployment.
+
+- **🧠 Smart Contracts:**  
+  Written in Python using Algorand’s ARC-4 application architecture (via Algopy), the core logic resides in the `MSME-contracts` module.  
+  - Responsible for MSME registration, on-chain storage of anonymized data proofs, and AI-based score recording.
+  - Implements Algorand NFT/ASA logic to generate a “Digital Credit Passport” as a non-transferable, blockchain-native credential for each MSME.
+
+- **🤖 Off-chain AI Service:**  
+  External AI analyses the off-chain MSME business data submitted (e.g., invoices, bill payments) and generates a credit score.  
+  - Credit score is securely sent on-chain for immutability and verifiability.
+
+- **💻 Frontend Application:**  
+  Built using React and Tailwind CSS, found in the `MSME-frontend` directory.
+  - Enables MSMEs and lenders to interact with the application, upload documents, and view scores.
+  - Integrates with the deployed smart contracts using application clients generated during the build process.
+
+- **🐳 Docker & AlgoKit LocalNet:**  
+  Docker containers orchestrate Algorand’s LocalNet for local blockchain simulation, making development and testing streamlined for all contributors.
+  - AlgoKit simplifies localnet setup, builds, deployments, and supports smooth CI/CD integration.
+
+### 🔗 Component Interactions
+
+- Users interact with the frontend to register and upload business data.
+- The backend registers MSMEs and associates data proofs on-chain.
+- The external AI analyzes off-chain data and feeds back an on-chain credit score.
+- Lenders can query scores publicly and verify MSME credit passports securely on-chain.
+
+> For more details on code organization or customizing the solution, consult the child project READMEs under `/projects/MSME-contracts` and `/projects/MSME-frontend`.
+
+
+---
+
+## 🌐 Frontend Application Deployment
+
+The frontend application of this project is deployed and accessible online, providing an intuitive web interface for MSMEs and lenders to interact with the credit scoring system.
+
+- **Deployed Frontend Link:**  
+  🔗 https://creditchain-rho.vercel.app/
+
+This deployment is hosted on Vercel and connects to the underlying smart contracts on the Algorand blockchain, enabling real-time interactions and verifiable credit scoring.
+
+Feel free to explore the application to see the project in action, submit data, and view credit scores generated by the AI-powered backend.
+
+---
